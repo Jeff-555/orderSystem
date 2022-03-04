@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--日志配置 企业级-->
+<!--注意：xml标签提示很少，谨慎敲打-->
+<configuration>
+    <!--name属性自定义，但class必须指定-->
+    <!--控制台输出-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--文件输出、动态加载-->
+    <!--只输出Debug-->
+    <appender name="fileDebugLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--filter过滤器 LevelFilter-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>   <!--onMatch 匹配到-->
+            <onMismatch>DENY</onMismatch>  <!--onMismatch 没匹被到的-->
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略 TimeBasedRollingPolicy可以附加时间参数-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>E:\Springboot_Project\Sell\sell_log\debug.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--只输出Info-->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--filter过滤器 LevelFilter-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>   <!--onMatch 匹配到-->
+            <onMismatch>DENY</onMismatch>  <!--onMismatch 没匹被到的-->
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略 TimeBasedRollingPolicy可以附加时间参数-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>E:\Springboot_Project\Sell\sell_log\info.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!--只输出warn日志-->
+    <appender name="fileWarnLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--filter过滤器 LevelFilter-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>   <!--onMatch 匹配到-->
+            <onMismatch>DENY</onMismatch>  <!--onMismatch 没匹被到的-->
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略 TimeBasedRollingPolicy可以附加时间参数-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>E:\Springboot_Project\Sell\sell_log\warn.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+
+    <!--只输出Error-->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--filter过滤器 ThresholdFilter-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>E:\Springboot_Project\Sell\sell_log\error.%d.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+
+    <!--如果要输出debug必须level改成debug(非debug模式）-->
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileInfoLog"/>
+        <appender-ref ref="fileErrorLog"/>
+        <appender-ref ref="fileWarnLog"/>
+        <appender-ref ref="fileDebugLog"/>
+    </root>
+</configuration>

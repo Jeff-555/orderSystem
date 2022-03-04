@@ -1,0 +1,105 @@
+#    从 Spring 数据 JPA 显示 SQL 将 hibernate
+#   生成的 SQL显示到控制台的最简单方法是使用以下配置。
+#    show-sql: true
+#    虚拟机的mysql配置
+spring:
+  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.8.117:3306/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+  # Gson全局配置。如果返回前端字段为空，则隐藏
+  jackson:
+    default-property-inclusion: non_null
+
+  # 处理异常
+  mvc:
+    throw-exception-if-no-handler-found: true
+  redis:
+    host: 192.168.8.117
+    port: 6379
+
+#  resources:
+#    static-locations: /resources/static
+
+
+wechat:
+  #测试号（用于微信授权）
+  mpAppId: wx36e498395cafc16a
+  mpAppSecret: eb1eefb62dd2b7a22d5cd243873d3503
+
+  #借用账号（用于支付）
+  #  mpApp（绑定mchId）
+  #  mpAppId: wxd898fcb01713c658
+
+  #借用账号（用于开发平台 扫码）
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+
+  #商户号标识和商户号支付标识（绑定安全证书）
+  mchId: 1483469312
+  mchKey: 7mdApPMfXddfWWbbP4DUaVYm2wjyh3v3
+
+  #测试号对应消息模板值
+  templateId:
+    orderStatus: pUtQww3oPnbL9xUG35BNxEgn9Z2UyKyoRhdNB1jsZEI
+
+  #退款需要(安全证书),用于生产环境，放到虚拟机里。用于开发则放到某个本地目录下
+  #.\表示根目录sell
+  keyPath: .\doc\h5.p12
+
+  #支付后异步通知（查询结果）
+  notifyUrl: http://jimferent.natapp1.cc/sell/pay/notify
+
+# 进行外网链接的全局配置
+projectUrl:
+  wechatMpAuthorize: http://jimferent.natapp1.cc
+  wechatOpenAuthorize: http://jimferent.natapp1.cc
+  sell: http://jimferent.natapp1.cc
+
+
+#定义某路径下文件运行的日志输出，权限。
+logging:
+  level:
+    com.springboot.sell.dataObject.mapper: trace
+mybatis:
+#  resources路径下要用/
+  mapper-locations: /mapper/*.xml
+
+#又拍云服务（图片等资源上传到又拍云 https://console.upyun.com/services/file/）
+upyun:
+  bucketName: XXX
+  userName: xxx
+  password: xxxx
+  imageHost: http://xxx.com/
+
+server:
+  #1、上下文路径会影响微信域名授权，所以最好关了
+  #2、如果关了上下文路径，同时也要修改nginx上下文跳转路径和host映射路径
+  port: 8080
+  servlet:
+    context-path: /
+
+
+
+
+
+
+
+
+# 日志配置 非企业级
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  file: E:\Springboot_Project\Sell\sell_log\sell.log
+#  #    指定debug层级必须写路径
+#  level:
+#    com:
+#      springboot:
+#        sell:
+#          LoggerTest: debug
+

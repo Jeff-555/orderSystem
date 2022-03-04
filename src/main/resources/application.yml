@@ -1,0 +1,4 @@
+#切换开发和生产的配置
+spring:
+  profiles:
+    active: prod

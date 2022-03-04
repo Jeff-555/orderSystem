@@ -1,0 +1,30 @@
+openid（借用账号）：oTgZpwQWA7ip6eEge1OJ_P_-bGu0
+自己的openid oTo5D6N2uTfC3Qi52O6TRhAg_mk4
+
+自己测试号appid
+appid：wx36e498395cafc16a
+appsecret：eb1eefb62dd2b7a22d5cd243873d3503
+
+微信开发平台（借用账号）
+openAppId: wx6ad144e54af67d87
+openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+购买的uri：http://jimferent.natapp1.cc
+转成urlEncode： http%3A%2F%2Fjimferent.natapp1.cc
+
+网路授权
+获取code模板：https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+
+scope参数：snsapi_base不弹出直接跳转
+snsapi_userinfo
+
+获取access_token模板（获取code后）：https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+
+暂存access_token（动态）：
+{"access_token":"53_6WPwJtYwXrwKVsEfZqTdp5MnnfYDPm5nWxkZfxwU_Na1wrhSOosOtWekBIeLfI71ZkhE2tkGEqQiKyyilTvZ3g","
+expires_in":7200,
+"refresh_token":"53_Wsb236nWKEi93-DAlk4nl66ZEsF8a0in6gYAujWmmLKAbr4QuJQFNhjV8Q-LjcxPAkTXcHfas_qkk-sq3A0p2A",
+"openid":"oTo5D6N2uTfC3Qi52O6TRhAg_mk4",
+"scope":"snsapi_base"}
+
+参考网址：https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html
