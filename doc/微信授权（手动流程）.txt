@@ -1,0 +1,37 @@
+流程>
+1、设置域名
+2、获取code（5分钟）（测试号通过抓包方式提取）
+3、通过code换取access_token（有生命周期，重新刷新获取则是30天）
+注意：微信OAuth2.0网页授权是填域名不是网址（不需要加http://)
+
+
+必要工具>
+openid（借用账号）：oTgZpwQWA7ip6eEge1OJ_P_-bGu0
+
+微信开发平台（借用账号）
+openAppId: wx6ad144e54af67d87
+openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+
+获取code模板：https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect
+
+获取access_token模板（获取code后）：https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+
+测试号appid：wx36e498395cafc16a
+          appsecret：eb1eefb62dd2b7a22d5cd243873d3503
+
+购买的uri：http://jimferent.natapp1.cc
+	转成urlEncode： http%3A%2F%2Fjimferent.natapp1.cc
+
+scope参数：snsapi_base不弹出直接跳转
+	   snsapi_userinfo
+
+暂存code（动态）：093gVf000yowhN1QSb100q62sT2gVf0I
+
+暂存access_token（动态）：
+{"access_token":"53_6WPwJtYwXrwKVsEfZqTdp5MnnfYDPm5nWxkZfxwU_Na1wrhSOosOtWekBIeLfI71ZkhE2tkGEqQiKyyilTvZ3g","
+expires_in":7200,
+"refresh_token":"53_Wsb236nWKEi93-DAlk4nl66ZEsF8a0in6gYAujWmmLKAbr4QuJQFNhjV8Q-LjcxPAkTXcHfas_qkk-sq3A0p2A",
+"openid":"oTo5D6N2uTfC3Qi52O6TRhAg_mk4",
+"scope":"snsapi_base"}
+
+参考网址：https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html

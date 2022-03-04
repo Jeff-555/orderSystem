@@ -182,7 +182,7 @@ orderId: 161899085773669363
 ###获取openid
 
 ```
-重定向到 /sell/wechat/authorize
+重定向 /sell/wechat/authorize
 ```
 
 参数
@@ -197,3 +197,20 @@ returnUrl: http://xxx.com/abc  //【必填】
 http://xxx.com/abc?openid=oZxSYw5ldcxv6H0EU67GgSXOUrVg
 ```
 
+
+
+###支付订单
+```
+重定向 /sell/pay/create
+```
+
+参数
+
+```
+orderId: 161899085773669363
+returnUrl：http://xxx.com/abc/order/161899085773669363
+```
+返回
+```
+http://xxx.com/abc/order/161899085773669363
+```

@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "57d515cf-f7f3-46af-8e2c-371523533865",
+		"name": "Sell",
+		"description": "微信点餐系统",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BuyerOrderController",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "openid",
+									"value": "oTgZpwQWA7ip6eEge1OJ_P_-bGu0",
+									"type": "text"
+								},
+								{
+									"key": "items",
+									"value": " [{productId: \"345678\",productQuantity: 2 }]",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "sell.com/sell/buyer/order/create",
+							"host": [
+								"sell",
+								"com"
+							],
+							"path": [
+								"sell",
+								"buyer",
+								"order",
+								"create"
+							]
+						},
+						"description": "创建订单"
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jimferent.natapp1.cc/sell/buyer/order/list?openid= 2022.7.2",
+							"protocol": "http",
+							"host": [
+								"jimferent",
+								"natapp1",
+								"cc"
+							],
+							"path": [
+								"sell",
+								"buyer",
+								"order",
+								"list"
+							],
+							"query": [
+								{
+									"key": "openid",
+									"value": " 2022.7.2"
+								}
+							]
+						},
+						"description": "订单列表"
+					},
+					"response": []
+				},
+				{
+					"name": "detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "sell.com/sell/buyer/order/detail?openid= 2022.7.2&orderId=1644218703940621964",
+							"host": [
+								"sell",
+								"com"
+							],
+							"path": [
+								"sell",
+								"buyer",
+								"order",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "openid",
+									"value": " 2022.7.2"
+								},
+								{
+									"key": "orderId",
+									"value": "1644218703940621964"
+								}
+							]
+						},
+						"description": "查询订单详情"
+					},
+					"response": []
+				},
+				{
+					"name": "cancel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "sell.com/sell/buyer/order/cancel?openid= 2022.7.2&orderId=1644218703940621964",
+							"host": [
+								"sell",
+								"com"
+							],
+							"path": [
+								"sell",
+								"buyer",
+								"order",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "openid",
+									"value": " 2022.7.2"
+								},
+								{
+									"key": "orderId",
+									"value": "1644218703940621964"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "买家订单API"
+		},
+		{
+			"name": "BuyerProductController",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jimferent.natapp1.cc/sell/buyer/product/list",
+							"protocol": "http",
+							"host": [
+								"jimferent",
+								"natapp1",
+								"cc"
+							],
+							"path": [
+								"sell",
+								"buyer",
+								"product",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WechatController",
+			"item": [
+				{
+					"name": "authorize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jimferent.natapp1.cc/sell/weixin/auth?code=1",
+							"protocol": "http",
+							"host": [
+								"jimferent",
+								"natapp1",
+								"cc"
+							],
+							"path": [
+								"sell",
+								"weixin",
+								"auth"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PayController",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://jimferent.natapp1.cc/sell/pay/create?orderId=1645149075671751859&returnUrl=http://jimferent.natapp1.cc/%23/orderId=1645149075671751859",
+							"protocol": "http",
+							"host": [
+								"jimferent",
+								"natapp1",
+								"cc"
+							],
+							"path": [
+								"sell",
+								"pay",
+								"create"
+							],
+							"query": [
+								{
+									"key": "orderId",
+									"value": "1645149075671751859"
+								},
+								{
+									"key": "returnUrl",
+									"value": "http://jimferent.natapp1.cc/%23/orderId=1645149075671751859"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SellerOrderController",
+			"item": [
+				{
+					"name": "https://sell.com/sell/seller/order/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sell.com/sell/seller/order/list",
+							"protocol": "https",
+							"host": [
+								"sell",
+								"com"
+							],
+							"path": [
+								"sell",
+								"seller",
+								"order",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
